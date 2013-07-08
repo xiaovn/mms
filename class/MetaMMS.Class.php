@@ -24,4 +24,7 @@ class MetaMMS {
         }
         else return false;
     }
+    function getMeta(){
+        return $result=mysql_query("select * from 'meta'");
+    }
 }
