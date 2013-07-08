@@ -6,7 +6,7 @@
  * Time: 9:14 AM
  * To change this template use File | Settings | File Templates.
  */
-
+namespace mms;
 class AccountMMS {
 
     function testAccountExist($UserName){

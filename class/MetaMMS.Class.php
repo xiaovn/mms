@@ -6,7 +6,7 @@
  * Time: 9:15 AM
  * To change this template use File | Settings | File Templates.
  */
-
+namespace mms;
 class MetaMMS {
     function CreateMeta($metaName){
            $q="select * from where 'metaname'=''".$metaName."'";
