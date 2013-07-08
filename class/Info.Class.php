@@ -9,7 +9,7 @@
  */
 
 namespace mms;
-class InfoClass {
+class InfoClass extends AccountMMS{
   public function SetName($uid,$name)
   {
     mysql_query("UPDATE `info` SET `fullname` = '{$name}' WHERE id='{$uid}' LIMIT 1;");
@@ -41,19 +41,19 @@ class InfoClass {
     switch($unit)
     {
       case "fullname":
-        return $ui->fullname;
+        return $ui['fullname'];
         break;
       case "email":
-        return $ui->email;
+        return $ui['email'];
         break;
       case "sex":
-        return $ui->sex;
+        return $ui['sex'];
         break;
       case "phone":
-        return $ui->phone;
+        return $ui['phone'];
         break;
       case "add":
-        return $ui->add;
+        return $ui['add'];
         break;
       default:
         break;

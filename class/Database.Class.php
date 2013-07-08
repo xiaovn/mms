@@ -24,15 +24,6 @@ class Database {
     mysql_select_db(DBDATA, $this->connection);
     mysql_set_charset('utf8', $this->connection);
   }
-
-  function sf($unit, $table) {
-    /*
-     * This function is select $unit from $table.
-     */
-    return mysql_query("SELECT ".$unit." FROM ".$table, $this->connection);
-    $this->sf();
-  }
-
   function __destruct() {
     /*
      * Close connection;
