@@ -9,7 +9,8 @@
  */
 
 namespace mms;
-class InfoClass extends AccountMMS{
+include_once "Database.Class.php";
+class InfoClass{
   public function SetName($uid,$name)
   {
     mysql_query("UPDATE `info` SET `fullname` = '{$name}' WHERE id='{$uid}' LIMIT 1;");
@@ -36,7 +37,7 @@ class InfoClass extends AccountMMS{
   }
   public function GetInfo($unit,$uid)
   {
-    $info = @mysql_query("SELECT '{$unit}' FROM `info` WHERE id='{$uid}'");
+    $info = @mysql_query("SELECT * FROM `info` WHERE id='{$uid}'");
     $ui = @mysql_fetch_array( $info );
     switch($unit)
     {
@@ -44,6 +45,7 @@ class InfoClass extends AccountMMS{
         return $ui['fullname'];
         break;
       case "email":
+        //return "abcd";
         return $ui['email'];
         break;
       case "sex":
