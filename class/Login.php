@@ -9,4 +9,30 @@
 namespace mms;
 
 ?>
-<form action=""></form>
+<form action="AccountMMS.Class.php" method="post">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    User Name
+                </td>
+                <td>
+                    <input type="text" name="UserName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    PassWord
+                </td>
+                <td>
+                    <input type="password" name="PassWord">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Login" name="Login">
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
