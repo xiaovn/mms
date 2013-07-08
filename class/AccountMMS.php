@@ -21,6 +21,15 @@ class AccountMMS {
     function CreateAccount($id,$userName,$passWord,$group){
         if(self::testAccountExist($userName)==true){
             $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
+            mysql_query($q);
+
         }
+     function DeleteAccount($UserName){
+         $q="DELETE FROM `account` WHERE username='".$UserName."'";
+         mysql_query($q);
+     }
+     function ChangePassword($username,$passWord){
+         $q="UPDATE `account` SET `password'='".$passWord."' where 'username'='".$username."'";
+     }
     }
 }
