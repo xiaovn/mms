@@ -9,9 +9,38 @@
 
 ?>
 <form action="AccountMMS.Class.php" method="post">
-<div>UserName<input type="text" maxlength="25"></div>
-<div>PassWord<input type="password" maxlength="50"></div>
-<div>Confirm PassWord<input type="password" maxlength="50"></div>
-<div><input type="submit"></div>
+<div>
+    <table>
+        <tr>
+            <td>
+                User Name
+            </td>
+            <td>
+                <input type="text" maxlength="25" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                PassWord
+            </td>
+            <td>
+                <input type="password" maxlength="50" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Confirm PassWord
+            </td>
+            <td>
+                <input type="password" maxlength="50" name="confirmPassword">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value=" Create Account" name="createAccount">
+            </td>
+        </tr>
+    </table>
+</div>
 
 </form>
