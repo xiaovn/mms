@@ -10,7 +10,7 @@ namespace mms;
 class AccountMMS {
 
     function testAccountExist($UserName){
-        $q="SELECT * FROM `account` WHERE username =' ".$UserName." '";
+        $q="SELECT * FROM `account` WHERE username ='".$UserName."'";
         $countRecord=mysql_num_rows(mysql_query($q));
         if($countRecord==0){
             return true;
@@ -18,12 +18,17 @@ class AccountMMS {
         else return false;
 
     }
-    function CreateAccount($id,$userName,$passWord,$group){
-        if(self::testAccountExist($userName)==true){
-            $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
-            mysql_query($q);
-
+    function CreateAccount($id,$userName,$passWord,$group,$confirmPassWord){
+        if($passWord!=$confirmPassWord){
+            return "Password not like confirmPassWord";
         }
+        else
+            if(self::testAccountExist($userName)==true){
+                $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
+                mysql_query($q);
+                return " Create Successful";
+        }
+        else return " Account Exists";
     }
      function DeleteAccount($UserName){
          $q="DELETE FROM `account` WHERE username='".$UserName."'";
@@ -39,7 +44,7 @@ class AccountMMS {
 
      }
     function Login($userName,$passWord){
-        $q="select * from 'account' where 'username'='".$userName."' and 'password'='".$passWord."'";
+        $q="select * from account where username='".$userName."' and password='".$passWord."'";
         $result=mysql_query($q);
         if(mysql_num_rows($result)==1){
             return $result;
