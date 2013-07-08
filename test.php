@@ -9,6 +9,7 @@
  */
 include_once("./class/Database.Class.php");
 include_once("./class/Info.Class.php");
+include_once("./class/Contact.Class.php");
 $connect = new \mms\Database();
 $info = @mysql_query("SELECT * FROM `info` WHERE id='312157777'");
 $ui = @mysql_fetch_array( $info );
@@ -17,3 +18,6 @@ $inf = new \mms\InfoClass();
 $inf->SetPhone("312157777","0935765797");
 $email = $inf->GetInfo("email","312157777");
 echo $email;
+$inf = new \mms\ContactClass();
+echo $inf->GetContact("312157777",1);
+$inf->AddContact("312157777",2,"kenzakivn");
