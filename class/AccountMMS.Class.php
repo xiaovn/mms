@@ -53,7 +53,21 @@ class AccountMMS {
         }
         else return false;
     }
-
+    public function AutoCreateID()
+    {
+      include_once "Database.Class.php";
+      $connect = new Database();
+      $id = "";
+      do
+      {
+        $id .= "3121";
+        $rdc = rand(1000,9999);
+        $id .= $rdc;
+        $id .= "7";
+      }
+      while(mysql_num_rows(mysql_query("SELECT * FROM account WHERE id = '".$id."'")));
+      return $id;
+    }
 
 
 }

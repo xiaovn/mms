@@ -8,12 +8,22 @@
  * Email: kenzaki@xiao.vn
  */
 include_once('header.php');
+include_once('./class/function.php');
+$nmem = new \mms\AccountMMS();
+$nid = $nmem->AutoCreateID();
+$_SESSION['MMS']['nid'] = $nid;
 ?>
 
   <div class="row">
     <div class="span6">
       <form class="form-horizontal" method="post" action="signup.php" id="sign-up-form">
         <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="name"><?php _e('Your ID'); ?></label>
+            <div class="controls">
+              <span class="uneditable-input"><?php echo $nid; ?></span>
+              </div>
+          </div>
           <div class="control-group">
             <label class="control-label" for="name"><?php _e('Full name'); ?></label>
             <div class="controls">
