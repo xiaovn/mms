@@ -48,11 +48,11 @@ ob_start();
 					<span class="icon-bar"></span>
 				</a>
 
-				<h3><a class="brand" href="home.php"><?php _e('Member Management System'); ?></a></h3>
+				<h3><a class="brand" href="index.php"><?php _e('Member Management System'); ?></a></h3>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li><a href="home.php"><?php _e('Home'); ?></a></li>
-						<li><a href="protected.php"><?php _e('Member Area'); ?></a></li>
+						<li><a href="index.php"><?php _e('Home'); ?></a></li>
+						<li><a href="profile.php"><?php _e('Member Area'); ?></a></li>
 						<li><a href="admin/"><?php _e('Admin CP'); ?></a></li>
 					</ul>
 		<?php if(isset($_SESSION['jigowatt']['username'])) { ?>
