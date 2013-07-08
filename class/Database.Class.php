@@ -9,33 +9,34 @@
  */
 
 namespace mms;
-
+include_once "./config.php";
 
 
 class Database {
-  private $host;
-  private $user;
-  private $password;
-  private $database;
-  public function Database($host,$user,$pass,$data)
-  {
-    $this->host = $host;
-    $this->user = $user;
-    $this->password = $pass;
-    $this->database = $data;
-  }
-  public function ConnectData($host,$user,$pass,$data)
-  {
-    $Connect = mysql_connect("{$host}","{$user}","{$pass}");
-    if (!$Connect)
-    {
-      die('Could not connect: ' . mysql_error());
-    }
-    mysql_select_db("{$data}", $Connect);
-    mysql_query("set names 'utf8' ");
-  }
-  public function CloseConnect()
-  {
+  var $connection;
+  var $sf;
 
+  function __construct() {
+    /*
+     * This function is connect to Database with info on config.php file.
+    */
+    $this->connection = mysql_connect(DBHOST, DBUSER, DBPASS) or die(mysql_error());
+    mysql_select_db(DBDATA, $this->connection);
+    mysql_set_charset('utf8', $this->connection);
+  }
+
+  function sf($unit, $table) {
+    /*
+     * This function is select $unit from $table.
+     */
+    return mysql_query("SELECT ".$unit." FROM ".$table, $this->connection);
+    $this->sf();
+  }
+
+  function __destruct() {
+    /*
+     * Close connection;
+     */
+    mysql_close($this->connection);
   }
 }
