@@ -6,6 +6,7 @@
  * Time: 9:14 AM
  * To change this template use File | Settings | File Templates.
  */
+namespace mms;
 class AccountMMS {
 
     function testAccountExist($UserName){
@@ -23,6 +24,7 @@ class AccountMMS {
             mysql_query($q);
 
         }
+    }
      function DeleteAccount($UserName){
          $q="DELETE FROM `account` WHERE username='".$UserName."'";
          mysql_query($q);
@@ -36,6 +38,15 @@ class AccountMMS {
          else return false;
 
      }
-
+    function Login($userName,$passWord){
+        $q="select * from 'account' where 'username'='".$userName."' and 'password'='".$passWord."'";
+        $result=mysql_query($q);
+        if(mysql_num_rows($result)==1){
+            return $result;
+        }
+        else return false;
     }
+
+
+
 }
