@@ -34,7 +34,7 @@ include_once('header.php');
 
   <div class="row">
     <div class="main login">
-      <form method="post" class="form normal-label" action="login.php">
+      <form method="post" class="form normal-label" action="./Control/LoginControl.Class.php">
         <fieldset>
           <h4><?php _e('Sign in to MMS'); ?></h4>
           <div class="control-group">

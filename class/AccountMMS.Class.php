@@ -45,8 +45,10 @@ class AccountMMS {
      }
     function Login($userName,$passWord){
         $q="select * from account where username='".$userName."' and password='".$passWord."'";
+
         $result=mysql_query($q);
         if(mysql_num_rows($result)==1){
+
             return $result;
         }
         else return false;

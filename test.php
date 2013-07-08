@@ -21,3 +21,4 @@ echo $ui['fullname'];
 //$inf = new \mms\ContactClass();
 //echo $inf->GetContact("312157777",1);
 //$inf->AddContact("312157777",2,"kenzakivn");
+header("Location: index2.php");
