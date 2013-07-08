@@ -28,8 +28,11 @@ class AccountMMS {
          $q="DELETE FROM `account` WHERE username='".$UserName."'";
          mysql_query($q);
      }
-     function ChangePassword($username,$passWord){
-         $q="UPDATE `account` SET `password'='".$passWord."' where 'username'='".$username."'";
+     function ChangePassword($username,$passWord,$newPassWord){
+
+        // $q="UPDATE `account` SET `password'='".$passWord."' where 'username'='".$username."'";
+        // mysql_query($q);
      }
+
     }
 }
