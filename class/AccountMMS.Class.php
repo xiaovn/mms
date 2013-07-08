@@ -29,9 +29,13 @@ class AccountMMS {
          mysql_query($q);
      }
      function ChangePassword($username,$passWord,$newPassWord){
+           $q="select * from 'account' where 'username'='".$username."' and 'password'='".$passWord."'";
+         if(mysql_num_rows(mysql_query($q))==1){
+              $q="UPDATE `account` SET `password'='".$newPassWord."' where 'username'='".$username."'";
+              mysql_query($q);
+         }
+         else return false;
 
-        // $q="UPDATE `account` SET `password'='".$passWord."' where 'username'='".$username."'";
-        // mysql_query($q);
      }
 
     }
