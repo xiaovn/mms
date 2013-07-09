@@ -18,9 +18,9 @@ class AccountMMS {
         else return false;
 
     }
-    function CreateAccount($id,$userName,$passWord,$group){
+    function CreateAccount($id,$userName,$passWord,$email,$group){
         if(self::testAccountExist($userName)==true){
-            $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
+            $q="INSERT INTO `account`(`id`, `username`, `password`,`email`, `group`) VALUES ('".$id."','".$userName."','".$passWord."','".$email."',".$group.")";
             mysql_query($q);
 
         }

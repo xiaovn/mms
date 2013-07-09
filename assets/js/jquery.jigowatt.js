@@ -52,12 +52,7 @@ $("#sign-up-form").validate({
 		name: "required",
 		username: {
 			required: true,
-			minlength: 2,
-			remote: {
-				url: "classes/signup.class.php",
-				type: "post",
-				data: { checkusername: "1" }
-			}
+			minlength: 2
 		},
 		password: {
 			required: true,
@@ -73,20 +68,14 @@ $("#sign-up-form").validate({
 		},
 		email: {
 			required: true,
-			email: true,
-			remote: {
-				url: "classes/signup.class.php",
-				type: "post",
-				data: { checkemail: "1" }
-			}
+			email: true
 		}
 	},
 	messages: {
 		name: "I know you've got one.",
 		username: {
 			required: "You need a username!",
-			minlength: $.format("Enter at least {0} characters"),
-			remote: jQuery.format("Username has been taken.")
+			minlength: $.format("Enter at least {0} characters")
 		},
 		password: {
 			required: "Create a password",
@@ -99,8 +88,7 @@ $("#sign-up-form").validate({
 		},
 		email: {
 			required: "What's your email address?",
-			email: "Doesn't look like a valid email :(",
-			remote: jQuery.format("Email address is in use.")
+			email: "Doesn't look like a valid email :("
 		}
    },
 	errorClass: 'error',
@@ -111,7 +99,7 @@ $("#sign-up-form").validate({
 	},
 	unhighlight: function(element, errorClass, validClass) {
 		$(element).parent('div').parent('div').removeClass(errorClass).addClass(validClass);
-	},
+	}
 });
 
 $('#forgotsubmit').click(function(){
