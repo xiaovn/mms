@@ -7,15 +7,15 @@
  * Time: 3:59 PM
  * Email: kenzaki@xiao.vn
  */
-include_once('./class/Member.Class.php');
+include_once('./class/function.php');
 include_once('header.php');
-$profile = new \mms\MemberClass();
+//$profile = new \mms\MemberClass();
 ?>
 
   <h1>
 
     <a href="http://gravatar.com/emails/" class="a-tooltip" data-rel="tooltip-bottom" title="<?php _e('Change your avatar at Gravatar.com'); ?>">
-      <img class="gravatar thumbnail" src="<?php echo $profile->get_gravatar('kenzakivn@gmail.com', false, 54); ?>"/>
+      <img class="gravatar thumbnail" src="<?php echo get_gravatar('kenzakivn@gmail.com', false, 54); ?>"/>
     </a>
 
     kenzaki (Ken Zaki)

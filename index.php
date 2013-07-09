@@ -14,7 +14,7 @@ include_once('header.php');
     <h1><?php _e('Welcome Guest!.'); ?></h1>
     <h2><?php _e('Easy to Registry and Use Service With Us'); ?></h2>
     <p>
-      <a href="signup.php" target="_TOP" class="btn btn-info btn-large"><?php _e('New Register'); ?> &raquo;</a>
+      <a href="signup.php" class="btn btn-info btn-large"><?php _e('New Register'); ?> &raquo;</a>
       <a href="login.php" class="btn btn-large" target="_blank"><?php _e('Member Login'); ?></a>
     </p>
     <p class="info-links">

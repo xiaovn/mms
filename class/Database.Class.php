@@ -9,7 +9,6 @@
  */
 
 namespace mms;
-//include_once "../config.php";
 define("DBHOST","192.168.1.13");
 define("DBUSER","kenzaki");
 define("DBPASS","");
@@ -17,7 +16,6 @@ define("DBDATA","mms");
 
 class Database {
   var $connection;
-  var $sf;
 
   function __construct() {
     /*

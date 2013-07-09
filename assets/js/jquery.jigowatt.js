@@ -1,8 +1,7 @@
 /**
  * jquery.jigowatt.js
- * Author: Jigowatt
+ * Author: Ken Zaki
  */
-
 $(function () {
 	"use strict";
 
@@ -46,9 +45,9 @@ $('#forgot-form').bind('hidden', function () {
 	"use strict";
     $('#username').focus();
 });
-
 $("#sign-up-form").validate({
-	rules: {
+
+  rules: {
 		name: "required",
 		username: {
 			required: true,
@@ -76,6 +75,7 @@ $("#sign-up-form").validate({
 		username: {
 			required: "You need a username!",
 			minlength: $.format("Enter at least {0} characters")
+      /*noSpace: "Not allow space in username"*/
 		},
 		password: {
 			required: "Create a password",
