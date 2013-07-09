@@ -18,12 +18,16 @@ class AccountMMS {
         else return false;
 
     }
-    function CreateAccount($id,$userName,$passWord,$group){
+    function CreateAccount($id,$userName,$passWord,$confirmPassword,$email,$group){
+        if(isset($passWord )){
+            if($passWord==$confirmPassword)
         if(self::testAccountExist($userName)==true){
-            $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
+            $q="INSERT INTO `account`(`id`, `username`, `password`,email, `group`) VALUES ('".$id."','".$userName."','".$passWord."','".$email."',".$group.")";
             mysql_query($q);
-
+                return true;
+            }
         }
+        return false;
     }
      function DeleteAccount($UserName){
          $q="DELETE FROM `account` WHERE username='".$UserName."'";
@@ -39,7 +43,8 @@ class AccountMMS {
 
      }
     function Login($userName,$passWord){
-        $q="select * from 'account' where 'username'='".$userName."' and 'password'='".$passWord."'";
+        $q="select * from account where username='".$userName."' and password='".$passWord."'";
+        echo $q;
         $result=mysql_query($q);
         if(mysql_num_rows($result)==1){
             return $result;

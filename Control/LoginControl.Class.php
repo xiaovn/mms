@@ -10,15 +10,14 @@
 
 
 //include_once("../login.php");
-include_once("../config.php");
-include_once("../class/AccountMMS.Class.php");
-include_once("../class/Database.Class.php");
+
+include_once("../class/function.php");
 
 $connection=new mms\Database();
 
 $Account=new mms\AccountMMS();
 
-$result=$Account->Login($_POST["username"],$_POST["password"]);
+$result=$Account->Login($_POST["username"],md5($_POST["password"]));
 
 if($result==false){
     header("Location: ../login.php");

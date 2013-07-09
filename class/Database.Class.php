@@ -10,9 +10,9 @@
 
 namespace mms;
 //include_once "../config.php";
-define("DBHOST","192.168.1.13");
-define("DBUSER","kenzaki");
-define("DBPASS","");
+define("DBHOST","localhost");
+define("DBUSER","root");
+define("DBPASS","123456");
 define("DBDATA","mms");
 
 class Database {
