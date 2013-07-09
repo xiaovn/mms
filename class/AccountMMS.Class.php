@@ -18,13 +18,13 @@ class AccountMMS {
         else return false;
 
     }
-    function CreateAccount($id,$userName,$passWord,$group,$confirmPassWord){
+    function CreateAccount($id,$userName,$passWord,$confirmPassWord,$email,$group){
         if($passWord!=$confirmPassWord){
             return "Password not like confirmPassWord";
         }
         else
             if(self::testAccountExist($userName)==true){
-                $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
+                $q="INSERT INTO `account`(`id`, `username`, `password`,email, `group`) VALUES ('".$id."','".$userName."','".md5($passWord)."','".$email."',".$group.")";
                 mysql_query($q);
                 return " Create Successful";
         }
@@ -35,21 +35,22 @@ class AccountMMS {
          mysql_query($q);
      }
      function ChangePassword($username,$passWord,$newPassWord){
-           $q="select * from 'account' where 'username'='".$username."' and 'password'='".$passWord."'";
+           $q="select * from 'account' where 'username'='".$username."' and 'password'='".md5($passWord)."'";
          if(mysql_num_rows(mysql_query($q))==1){
-              $q="UPDATE `account` SET `password'='".$newPassWord."' where 'username'='".$username."'";
+              $q="UPDATE `account` SET `password'='".md5($newPassWord)."' where 'username'='".$username."'";
               mysql_query($q);
          }
          else return false;
 
      }
     function Login($userName,$passWord){
-        $q="select * from account where username='".$userName."' and password='".$passWord."'";
+        $q="select * from account where username='".$userName."' and password='".md5($passWord)."'";
 
         $result=mysql_query($q);
         if(mysql_num_rows($result)==1){
 
             return $result;
+
         }
         else return false;
     }

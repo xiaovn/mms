@@ -16,8 +16,8 @@ include_once "../config.php";
 include_once("../class/AccountMMS.Class.php");
 $connect = new \mms\Database();
 $createAccount=new \mms\AccountMMS();
- echo $createAccount->CreateAccount("12345678","xuanthuong","123456s",1,"123456");
-$a= $createAccount->Login("xuanthuong","123456");
+ echo $createAccount->CreateAccount("36985635","xuanthuongcr","123456","123456","xuanthuongcr@gmail.com",2);
+$a= $createAccount->Login("xuanthuongcr",md5("123456"));
 $ui=mysql_fetch_array($a);
 echo $ui["id"];
 
