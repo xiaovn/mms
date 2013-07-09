@@ -7,7 +7,7 @@
  * Time: 4:30 PM
  * To change this template use File | Settings | File Templates.
  */
-
+session_start();
 
 //include_once("../login.php");
 
@@ -20,10 +20,15 @@ $Account=new mms\AccountMMS();
 $result=$Account->Login($_POST["username"],md5($_POST["password"]));
 
 if($result==false){
-    header("Location: ../login.php");
+
+   header("Location: ../login.php");
 }
-else
-    header("Location: ../index.php");
+else{
+    $info=new \mms\InfoClass();
+    $_SESSION['fullname']=$info->GetInfo("fullname",$_SESSION['userid']);
+
+    header("Location: ../profile.php");
+    }
 
 ?>
 

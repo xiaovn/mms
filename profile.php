@@ -7,9 +7,11 @@
  * Time: 3:59 PM
  * Email: kenzaki@xiao.vn
  */
-include_once('./class/Member.Class.php');
+session_start();
+include_once('./class/function.php');
 include_once('header.php');
 $profile = new \mms\MemberClass();
+
 ?>
 
   <h1>
@@ -30,7 +32,7 @@ $profile = new \mms\MemberClass();
       <li class="active"><a href="#usr-control" data-toggle="tab"><i class="icon-cog"></i> <?php _e('General'); ?></a></li>
     </ul>
 
-    <form class="form-horizontal" method="post" action="profile.php">
+    <form class="form-horizontal" method="post" action="./Control/changePasswordControl.php">
       <div class="tab-content">
 
           <div class="tab-pane fade in active" id="usr-control">
@@ -45,13 +47,13 @@ $profile = new \mms\MemberClass();
               <div class="control-group">
                 <label class="control-label" for="name"><?php _e('Name'); ?></label>
                 <div class="controls">
-                  <input type="text" class="input-xlarge" id="name" name="name" value="">
+                  <input type="text" class="input-xlarge" id="name" readonly="true" name="name" value="<?php echo $_SESSION['fullname']; ?>">
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label" for="email"><?php _e('Email'); ?></label>
                 <div class="controls">
-                  <input type="email" class="input-xlarge" id="email" name="email" value="">
+                  <input type="email" readonly="true" class="input-xlarge" id="email" name="email" value="<?php echo $_SESSION['email'];?>">
                 </div>
               </div>
               <div class="control-group">
