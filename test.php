@@ -21,3 +21,17 @@ echo $email;
 $inf = new \mms\ContactClass();
 echo $inf->GetContact("312157777",1);
 $inf->AddContact("312157777",2,"kenzakivn");
+$to = "xuanthuongcr@gmail.com";
+$subject = "This is subject";
+$message = "This is simple text message.";
+$header = "From:abc@somedomain.com \r\n";
+$retval = mail ($to,$subject,$message,$header);
+if( $retval == true )
+{
+    echo "Message sent successfully...";
+}
+else
+{
+    echo "Message could not be sent...";
+}
+

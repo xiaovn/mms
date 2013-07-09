@@ -18,9 +18,9 @@ class AccountMMS {
         else return false;
 
     }
-    function CreateAccount($id,$userName,$passWord,$email,$group){
+    function CreateAccount($id,$userName,$passWord,$group){
         if(self::testAccountExist($userName)==true){
-            $q="INSERT INTO `account`(`id`, `username`, `password`, `email`, `group`) VALUES ('".$id."','".$userName."','".$passWord."','".$email."',".$group.")";
+            $q="INSERT INTO `account`(`id`, `username`, `password`, `group`) VALUES ('".$id."','".$userName."','".$passWord."',".$group.")";
             mysql_query($q);
 
         }
@@ -48,6 +48,8 @@ class AccountMMS {
     }
     public function AutoCreateID()
     {
+      include_once "Database.Class.php";
+      $connect = new Database();
       $id = "";
       do
       {
