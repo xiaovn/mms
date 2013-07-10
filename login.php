@@ -8,6 +8,28 @@
  * Email: kenzaki@xiao.vn
  */
 include_once('header.php');
+if(isset($_POST['login']))
+{
+  include_once "./class/function.php";
+  $username = mysql_real_escape_string($_POST["username"]);
+  $password = md5(mysql_real_escape_string($_POST["password"]));
+  $cl = mysql_query("SELECT * FROM account WHERE (username = '".$username."' OR id = '".$username."' OR email = '".$username."') AND password = '".$password."'");
+  if(mysql_num_rows($cl) == 1)
+  {
+    $row = mysql_fetch_array($cl);
+    $_SESSION['xID'] = $row['id'];
+    $_SESSION['xUser'] = $row['username'];
+    $_SESSION['xEmail'] = $row['email'];
+    $_SESSION['LoggedIn'] = 1;
+    echo "<h1>Success</h1>";
+    echo "<p>We (".$_SESSION['xID'].")  are now redirecting you to the member area.</p>";
+  }
+  else
+  {
+    echo "<h1>Error</h1>";
+    echo "<p>Sorry, your account could not be found. Please <a href=\"index.php\">click here to try again</a>.</p>";
+  }
+}
 ?>
   <div id="forgot-form" class="modal hide fade">
     <div class="modal-header">
@@ -34,11 +56,11 @@ include_once('header.php');
 
   <div class="row">
     <div class="main login">
-      <form method="post" class="form normal-label" action="./Control/LoginControl.Class.php">
+      <form method="post" class="form normal-label" action="login.php">
         <fieldset>
           <h4><?php _e('Sign in to MMS'); ?></h4>
           <div class="control-group">
-            <label for="username" class="login-label"><?php _e('Username'); ?></label>
+            <label for="username" class="login-label"><?php _e('Username or ID or Email Address'); ?></label>
             <div class="controls">
               <input class="xlarge" id="username" name="username" maxlength="15" type="text"/>
               <span class="forgot"><a data-toggle="modal" href="#forgot-form" id="forgotlink" tabindex=-1><?php _e('Forget your password'); ?></a>?</span>

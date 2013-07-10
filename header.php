@@ -10,7 +10,7 @@
 ob_start();
 ?>
 <?php if (!isset($_SESSION)) session_start(); ?>
-<?php include_once('class/translate.class.php'); ?>
+<?php include_once('class/function.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -55,20 +55,20 @@ ob_start();
 						<li><a href="profile.php"><?php _e('Member Area'); ?></a></li>
 						<li><a href="admin/"><?php _e('Admin CP'); ?></a></li>
 					</ul>
-		<?php if(isset($_SESSION['jigowatt']['username'])) { ?>
+		<?php if(isset($_SESSION['LoggedIn'])) { ?>
 		<ul class="nav pull-right">
 			<li class="dropdown">
 				<p class="navbar-text dropdown-toggle" data-toggle="dropdown" id="userDrop">
-					<?php echo $_SESSION['jigowatt']['gravatar']; ?>
-					<a href="#"><?php echo $_SESSION['jigowatt']['username']; ?></a>
+          <img class="gravatar thumbnail" src="<?php echo get_gravatar($_SESSION['xEmail'], false, 32); ?>"/>
+					<a href="#"><?php echo $_SESSION['xUser']; ?></a>
 					<b class="caret"></b>
 				</p>
 				<ul class="dropdown-menu">
-		<?php if(in_array(1, $_SESSION['jigowatt']['user_level'])) { ?>
+		<?php if(isset($_SESSION['isAdmin'])) { ?>
 					<li><a href="admin/index.php"><i class="icon-home"></i> <?php _e('Control Panel'); ?></a></li>
 					<li><a href="admin/settings.php"><i class="icon-cog"></i> <?php _e('Settings'); ?></a></li> <?php } ?>
 					<li><a href="profile.php"><i class="icon-user"></i> <?php _e('My Account'); ?></a></li>
-					<li><a href="http://jigowatt.co.uk/themeforest/login/install.php"><i class="icon-info-sign"></i> <?php _e('Help'); ?></a></li>
+					<li><a href="#"><i class="icon-info-sign"></i> <?php _e('Help'); ?></a></li>
 					<li class="divider"></li>
 					<li><a href="logout.php"><?php _e('Sign out'); ?></a></li>
 				</ul>
