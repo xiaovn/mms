@@ -21,6 +21,11 @@ if(isset($_POST['login']))
     $_SESSION['xUser'] = $row['username'];
     $_SESSION['xEmail'] = $row['email'];
     $_SESSION['LoggedIn'] = 1;
+    if($row['group'] == 7)
+    {
+      $_SESSION['isAdmin'] = 1;
+    }
+    else{$_SESSION['isAdmin'] = 0;}
     echo "<h1>Success</h1>";
     echo "<p>We (".$_SESSION['xID'].")  are now redirecting you to the member area.</p>";
   }
@@ -62,7 +67,7 @@ if(isset($_POST['login']))
           <div class="control-group">
             <label for="username" class="login-label"><?php _e('Username or ID or Email Address'); ?></label>
             <div class="controls">
-              <input class="xlarge" id="username" name="username" maxlength="15" type="text"/>
+              <input class="xlarge" id="username" name="username" maxlength="30" type="text"/>
               <span class="forgot"><a data-toggle="modal" href="#forgot-form" id="forgotlink" tabindex=-1><?php _e('Forget your password'); ?></a>?</span>
             </div>
           </div>

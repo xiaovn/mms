@@ -9,7 +9,27 @@
  */
 include_once('header.php');
 ?>
-
+<?php
+if(isset($_SESSION['xUser']))
+{
+?>
+  <div class="hero-unit">
+    <h1><?php _e('Welcome '.$_SESSION['xUser'].'!.'); ?></h1>
+    <h2><?php _e('Easy to Registry and Use Service With Us'); ?></h2>
+    <p>
+      <a href="signup.php" class="btn btn-info btn-large"><?php _e('New Register'); ?> &raquo;</a>
+      <a href="login.php" class="btn btn-large" target="_blank"><?php _e('Member Login'); ?></a>
+    </p>
+    <p class="info-links">
+      <a href="#" target="_blank"><?php _e('Support Center'); ?></a>
+      <a href="#" target="_blank"><?php _e('Private Policy'); ?></a>
+    </p>
+  </div>
+  <?php
+}
+else
+{
+  ?>
   <div class="hero-unit">
     <h1><?php _e('Welcome Guest!.'); ?></h1>
     <h2><?php _e('Easy to Registry and Use Service With Us'); ?></h2>
@@ -22,7 +42,9 @@ include_once('header.php');
       <a href="#" target="_blank"><?php _e('Private Policy'); ?></a>
     </p>
   </div>
-
+<?php
+}
+  ?>
   <hr>
 
   <div class="features">
